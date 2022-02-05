@@ -1,34 +1,59 @@
 """
-Name: <your name goes here – first and last>
-<ProgramName>.py
+Name: Scott Repik - Repiksh
+hw3.py
 
-Problem: <Brief, one or two sentence description of the problem that this program solves, in your own words.>
+Problem: Create Functions that Use loops to solve problems
 
 Certification of Authenticity:
-<include one of the following>
 I certify that this assignment is entirely my own work.
-I certify that this assignment is my own work, but I discussed it with: <Name(s)>
 """
 
 
 def average():
-    pass
+    tot_grade = 0
+    avg_grade = 0
+    num_grade = eval(input("How many grades will be entered?"))
+    for _ in range(num_grade):
+        grade = eval(input("Enter Grade:"))
+        tot_grade = tot_grade + grade
+        avg_grade = tot_grade / num_grade
+    print("The Average Grade Is:", avg_grade)
 
 
 def tip_jar():
-    pass
+    tot_tip = 0
+    for _ in range(5):
+        tip = eval(input("How much would you like to tip?"))
+        tot_tip = tot_tip + tip
+    print("The total tips = $", tot_tip)
 
 
 def newton():
-    pass
+    numb = eval(input("What Number Do You Want To Square Root?"))
+    approx = eval(input("How many times should the approximation be improved?"))
+    approx_root = numb
+    for _ in range(approx):
+        approx_root = .5 * (approx_root + numb/approx_root)
+    print(approx_root)
 
 
 def sequence():
-    pass
+    list1 = []
+    list_terms = eval(input("How many terms in the list?"))
+    for _ in range(list_terms):
+        pass
 
 
 def pi():
-    pass
+    terms = eval(input("How many terms in the series?"))
+    p = 1
+    m = 2
+    for _ in range(terms):
+        pt = m/(m-1)
+        nt = m/(m+1)
+        p = p * pt * nt
+        m = m + 2
+    print(p * 2.5)
 
 
 if __name__ == '__main__':
