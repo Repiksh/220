@@ -33,9 +33,8 @@ def initials():
 
 def names():
     name = input("List the names:")
-    name_split = name.split(", ")
-    name_list = name_split.split(" ")
-
+    name_split = list(name)
+    name_list = name.split(" ")
 
     start = ""
 
