@@ -1,42 +1,68 @@
 """
-Name: <your name goes here – first and last>
-<ProgramName>.py
+Name: Scott Repik- Repiksh
+hw6.py
 
 Problem: <Brief, one or two sentence description of the problem that this program solves, in your own words.>
 
 Certification of Authenticity:
-<include one of the following>
 I certify that this assignment is entirely my own work.
-I certify that this assignment is my own work, but I discussed it with: <Name(s)>
 """
+import math
 
 
 def cash_converter():
-    pass
+    int_entry = eval(input("Enter an int"))
+    text = "The Dollar Amount is {dollar:.2f}"
+    print(text.format(dollar=int_entry))
 
 
 def encode():
-    pass
+    text = input("Enter Text")
+    key = eval(input("Enter Key Number"))
+    text_encode = []
+    for i in range(len(text)):
+        new_text = ord(text[i]) + key
+        text_encode.append(chr(new_text))
+
+    print("".join(text_encode))
 
 
 def sphere_area(radius):
-    pass
+    equation = 4 * math.pi * (radius ** 2)
+    return equation
 
 
 def sphere_volume(radius):
-    pass
+    equation = (4 / 3) * math.pi * (radius ** 3)
+    return equation
 
 
 def sum_n(number):
-    pass
+    total = 0
+    for i in range(1, number + 1):
+        total = i + total
+    return total
 
 
 def sum_n_cubes(number):
-    pass
+    total = 0
+    for i in range(1, number + 1):
+        total = (i ** 3) + total
+    return total
 
 
 def encode_better():
-    pass
+    encode_text = input("Enter Text")
+    key = input("Enter Key")
+    encode_text_upper = encode_text.upper()
+    key_upper = key.upper()
+
+    enc_text_list = []
+    for i in range(len(encode_text)):
+        new_text = (ord(encode_text_upper[i]) + ord(key_upper[i % len(key_upper)])) % 26
+        new_text = new_text + ord("A")
+        enc_text_list.append(chr(new_text))
+    print("".join(enc_text_list))
 
 
 if __name__ == '__main__':
