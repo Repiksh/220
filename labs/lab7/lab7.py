@@ -13,12 +13,12 @@ def weighted_average(in_file_name, out_file_name):
     grades = open(in_file_name, "r")
     grades_list = grades.readlines()
     num_students = 0
-
+    sum_list = []
     for i in grades_list:
         names_grades = i.split(":")
-        names_grades_list = names_grades[0].split()
-        print(names_grades_list)
+        names_grades_list = names_grades[0].replace("'", " ")
         weights_total = 100
+
         grades_weights = names_grades[1].split()
         grades_weights_list = list(map(int, grades_weights))
         list_weights = grades_weights_list[::2]
@@ -26,15 +26,20 @@ def weighted_average(in_file_name, out_file_name):
         weight_sum = sum(list_weights)
         avg = 0
         if weight_sum > weights_total:
-            out.write(repr(names_grades_list) + "Error: the weights are above 100" + "\n")
+            out.write(repr(names_grades_list) + " Error: the weights are above 100" + "\n")
         elif weight_sum < weights_total:
-            out.write(repr(names_grades_list) + "Error: the weights are below 100" + "\n")
+            out.write(repr(names_grades_list) + " Error: the weights are below 100" + "\n")
         else:
+
             for q in range(len(list_weights)):
                 avg = avg + (list_weights[q] * list_grades[q])
             full_avg = avg / 100
-            out.write(repr(names_grades_list) + "average grade is:" + repr(full_avg) + "\n")
-
+            sum_list.append(full_avg)
+            out.write(repr(names_grades_list) + " average grade is: " + repr(full_avg) + "\n")
+            num_students += 1
+    sum_sum = sum(sum_list)
+    class_avg = sum_sum / num_students
+    out.write(repr(class_avg) + " is the class average" + "\n")
     grades.close()
     out.close()
 
@@ -45,4 +50,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
