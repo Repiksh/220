@@ -55,7 +55,14 @@ def send_message(file_name, friend_name):
 
 
 def encode():
-    pass
+    text = input("Enter Text")
+    key = eval(input("Enter Key Number"))
+    text_encode = []
+    for i in range(len(text)):
+        new_text = ord(text[i]) + key
+        text_encode.append(chr(new_text))
+
+    print("".join(text_encode))
 
 
 def send_safe_message(file_name, friend_name, key):
