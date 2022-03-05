@@ -38,7 +38,15 @@ def hourly_wages(in_file_name, out_file_name):
 
 
 def calc_check_sum(isbn):
-    pass
+    isbn_list = []
+    isbn_list.append(isbn)
+    for i in isbn_list:
+        isbn_replace = i.replace("-", " ")
+        isbn_split = isbn_replace.split(" ")
+        if len(isbn_split) > 10
+            print("The isbn length is greater than 10")
+        else
+
 
 
 def send_message(file_name, friend_name):
@@ -67,7 +75,6 @@ def send_safe_message(file_name, friend_name, key):
     new_file = open(friend_name + ".txt", "w")
     text = encode(file_list, key)
     new_file.write(repr(text))
-
 
 
 def send_uncrackable_message(file_name, friend_name, pad_file_name):
