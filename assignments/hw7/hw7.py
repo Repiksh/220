@@ -43,9 +43,9 @@ def calc_check_sum(isbn):
     for i in isbn_list:
         isbn_replace = i.replace("-", " ")
         isbn_split = isbn_replace.split(" ")
-        if len(isbn_split) > 10
+        if len(isbn_split) > 10:
             print("The isbn length is greater than 10")
-        else
+        else:
 
 
 
