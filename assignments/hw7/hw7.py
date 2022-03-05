@@ -43,7 +43,15 @@ def calc_check_sum(isbn):
 
 
 def send_message(file_name, friend_name):
-    pass
+    file = open(file_name, "r")
+    file_list = file.readlines()
+    name = friend_name
+    new_file = open(name + ".txt", "w")
+    for i in file_list:
+        new_file.write(repr(file_list) + "\n")
+    file.close()
+    new_file.close()
+
 
 
 def encode():
