@@ -37,7 +37,6 @@ def hourly_wages(in_file_name, out_file_name):
     out.close()
 
 
-
 def calc_check_sum(isbn):
     pass
 
@@ -53,20 +52,22 @@ def send_message(file_name, friend_name):
     new_file.close()
 
 
+def encode(text, key):
 
-def encode():
-    text = input("Enter Text")
-    key = eval(input("Enter Key Number"))
     text_encode = []
     for i in range(len(text)):
         new_text = ord(text[i]) + key
         text_encode.append(chr(new_text))
-
-    print("".join(text_encode))
+    return text_encode
 
 
 def send_safe_message(file_name, friend_name, key):
-    pass
+    file = open(file_name, "r")
+    file_list = file.readlines()
+    new_file = open(friend_name + ".txt", "w")
+    text = encode(file_list, key)
+    new_file.write(repr(text))
+
 
 
 def send_uncrackable_message(file_name, friend_name, pad_file_name):
