@@ -28,10 +28,10 @@ def did_collide(ball, ball_2):
     ball_2_x = ball_2_center.getX()
     ball_2_y = ball_2_center.getY()
     distance = (((ball_2_x - ball_1_x) ** 2) + ((ball_2_y - ball_1_y) ** 2)) ** (1/2)
-    if distance - rad_diff > rad_diff:
-        return True
-    else:
+    if distance > rad_diff:
         return False
+    else:
+        return True
 
 
 def hit_vertical(ball, win):
@@ -70,13 +70,35 @@ def bumper():
     width = 400
     circle_win = GraphWin("Circles", height, width)
     radius = 40
+    loop_check = circle_win.checkMouse()
     ball_1 = Circle(Point(randint(radius, width - radius), randint(radius, height - radius)), radius)
     ball_1.setFill(get_random_color())
     ball_1.draw(circle_win)
     ball_2 = Circle(Point(randint(radius, width - radius), randint(radius, height - radius)), radius)
     ball_2.setFill(get_random_color())
     ball_2.draw(circle_win)
-    did_collide(ball_1, ball_2)
+    i_x = get_random(5)
+    i_y = get_random(5)
+    i_x_2 = get_random(5)
+    i_y_2 = get_random(5)
 
-    circle_win.getMouse()
+    while not circle_win.checkMouse():
+        ball_2.move(i_x_2, i_y_2)
+        ball_1.move(i_x, i_y)
+        if hit_horizontal(ball_1, circle_win):
+            i_x = i_x * -1
+        if hit_vertical(ball_1, circle_win):
+            i_y *= -1
+        if hit_horizontal(ball_2, circle_win):
+            i_x_2 *= -1
+        if hit_vertical(ball_2, circle_win):
+            i_y_2 *= -1
+        if did_collide(ball_1, ball_2):
+            i_x *= -1
+            i_y *= -1
+            i_x_2 *= -1
+            i_y_2 *= -1
+
+        time.sleep(.05)
+
     circle_win.close()
