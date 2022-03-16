@@ -46,7 +46,20 @@ def calc_check_sum(isbn):
         if len(isbn_split) > 10:
             print("The isbn length is greater than 10")
         else:
+            D1 = int(isbn_split[0]) * 11
 
+            D2 = int(isbn_split[1]) * 10
+            D3 = int(isbn_split[2]) * 9
+            D4 = int(isbn_split[3]) * 8
+            D5 = int(isbn_split[4]) * 7
+            D6 = int(isbn_split[5]) * 6
+            D7 = int(isbn_split[6]) * 5
+            D8 = int(isbn_split[7]) * 4
+            D9 = int(isbn_split[8]) * 3
+            D10 = int(isbn_split[9]) * 2
+            Sum = (D1 + D2 + D3 + D4 + D5 + D6 + D7 + D8 + D9 + D10)
+            Mod = Sum % 11
+            D11 = 11 - Mod
 
 
 def send_message(file_name, friend_name):
