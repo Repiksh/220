@@ -90,17 +90,27 @@ def get_winner(board):
 
 def play(board):
     print_board(board)
-    while not game_over(board):
-        pos = eval(input("What Spot To Place an X?"))
-        check = is_legal(board, pos)
-        if check:
-            fill_spot(board, pos, "x")
-        else:
-            print("Can not place here")
-        print_board(board)
-
+    rerun = True
+    while rerun:
+        rerun_ask = input("Play Again? (Yes/No)")
+        if rerun_ask != "Yes":
+            rerun = False
+        while not game_over(board):
+            pos = eval(input("What Spot To Place an X?"))
+            check = is_legal(board, pos)
+            if check:
+                fill_spot(board, pos, "x")
+            else:
+                print("Can not place here")
+            print_board(board)
+            pos_o = eval(input("What Spot To Place an O?"))
+            check = is_legal(board, pos_o)
+            if check:
+                fill_spot(board, pos_o, "o")
+            else:
+                print("Can not place here")
+            print_board(board)
     get_winner(board)
-    rerun = input("Play Again? (Yes/No)")
 
 
 def main():
