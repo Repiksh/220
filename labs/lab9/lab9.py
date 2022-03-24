@@ -56,7 +56,7 @@ def winning_game(board):
     for i in range(0, 8, 3):
         if board[i] == board[i + 1] == board[i + 2]:
             return True
-    for i in range(0, 3):
+    for i in range(3):
         if board[i] == board[i + 3] == board[i + 6]:
             return True
     if board[0] == board[4] == board[8]:
@@ -68,53 +68,51 @@ def winning_game(board):
 def game_over(board):
     if winning_game(board):
         return True
-
-    for i in range(len(board)):
-        string = board[i]
-        new_string = str(string)
-        check = new_string.isnumeric()
+    for i in range(0,8):
+        string_board = str(board[i])
+        check = string_board.isnumeric()
         if check:
             return False
 
 
+
 def get_winner(board):
-    count_x = board.count("x")
-    count_o = board.count("o")
-    if count_x > count_o:
-        print("X wins")
-    elif count_o == count_x:
-        print("O wins")
-    else:
-        print("Its a tie")
+    if game_over(board):
+        count_x = board.count("x")
+        count_o = board.count("o")
+        if count_x > count_o:
+            print("X wins")
+        elif count_o == count_x:
+            print("O wins")
+        else:
+            print("Its a tie")
 
 
 def play(board):
     print_board(board)
     rerun = True
-    while rerun:
-        rerun_ask = input("Play Again? (Yes/No)")
-        if rerun_ask != "Yes":
-            rerun = False
-        while not game_over(board):
-            pos = eval(input("What Spot To Place an X?"))
-            check = is_legal(board, pos)
-            if check:
-                fill_spot(board, pos, "x")
-            else:
-                print("Can not place here")
-            print_board(board)
-            pos_o = eval(input("What Spot To Place an O?"))
-            check = is_legal(board, pos_o)
-            if check:
-                fill_spot(board, pos_o, "o")
-            else:
-                print("Can not place here")
-            print_board(board)
+    while not game_over(board):
+        pos = eval(input("What Spot To Place an X?"))
+        check = is_legal(board, pos)
+        if check:
+            fill_spot(board, pos, "x")
+        else:
+            print("Can not place here")
+        print_board(board)
+
+        pos_o = eval(input("What Spot To Place an O?"))
+        check_o = is_legal(board, pos_o)
+        if check_o:
+            fill_spot(board, pos_o, "o")
+        else:
+            print("Can not place here")
+        print_board(board)
+
     get_winner(board)
 
 
 def main():
-    pass
+    play(build_board())
 
 
 if __name__ == '__main__':
