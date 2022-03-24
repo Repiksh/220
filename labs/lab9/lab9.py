@@ -69,9 +69,10 @@ def game_over(board):
     if winning_game(board):
         return True
 
-    for i in board:
-        string = str(board[i])
-        check = string.isnumeric()
+    for i in range(len(board)):
+        string = board[i]
+        new_string = str(string)
+        check = new_string.isnumeric()
         if check:
             return False
 
