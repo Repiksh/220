@@ -1,15 +1,20 @@
 """
-Name: <your name goes here – first and last>
-<ProgramName>.py
+Scott Repik -Repiksh
+lab9.py
+
+
+Certification of Authenticity:
+I certify that this assignment is entirely my own work.
 """
 
 
 def build_board():
-    pass
+    board_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    return board_list
 
 
 def print_board(board):
-    """ prints the values of baord """
+    """ prints the values of board """
     RED = "\033[1;31m"
     BLUE = "\033[1;36m"
     LIGHT_GRAY = "\033[0;37m"
@@ -37,27 +42,64 @@ def print_board(board):
 
 
 def is_legal(board, position):
-    pass
+    string = str(board[position - 1])
+    check = string.isnumeric()
+    return check
 
 
 def fill_spot(board, position, character):
-    pass
+    new_character = character.strip()
+    board[position - 1] = new_character.lower()
 
 
 def winning_game(board):
-    pass
+    for i in range(0, 8, 3):
+        if board[i] == board[i + 1] == board[i + 2]:
+            return True
+    for i in range(0, 3):
+        if board[i] == board[i + 3] == board[i + 6]:
+            return True
+    if board[0] == board[4] == board[8]:
+        return True
+    if board[2] == board[4] == board[6]:
+        return True
 
 
 def game_over(board):
-    pass
+    if winning_game(board):
+        return True
+
+    for i in board:
+        string = str(board[i])
+        check = string.isnumeric()
+        if check:
+            return False
 
 
 def get_winner(board):
-    pass
+    count_x = board.count("x")
+    count_o = board.count("o")
+    if count_x > count_o:
+        print("X wins")
+    elif count_o == count_x:
+        print("O wins")
+    else:
+        print("Its a tie")
 
 
 def play(board):
-    pass
+    print_board(board)
+    while not game_over(board):
+        pos = eval(input("What Spot To Place an X?"))
+        check = is_legal(board, pos)
+        if check:
+            fill_spot(board, pos, "x")
+        else:
+            print("Can not place here")
+        print_board(board)
+
+    get_winner(board)
+    rerun = input("Play Again? (Yes/No)")
 
 
 def main():
