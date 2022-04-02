@@ -53,19 +53,20 @@ def play_graphics(secret_word):
 def play_command_line(secret_word):
     trials = 6
     guess_list = []
+    striped = secret_word.strip()
     while not won():
         guess = input(f"Guesses Left {trials}, Enter Next Guess:")
         if not already_guessed(guess, guess_list):
             guess_list.append(guess)
-            if letter_in_secret_word(guess, secret_word):
-                print(make_hidden_secret(secret_word, guess_list))
+            if letter_in_secret_word(guess, striped):
+                print(make_hidden_secret(striped, guess_list))
             else:
                 print("Letter not in word.")
                 trials -= 1
         else:
             print("Already Guessed")
         if trials == 0:
-            print("The word was:", secret_word)
+            print("The word was:", striped)
             break
     print("You Win")
 
