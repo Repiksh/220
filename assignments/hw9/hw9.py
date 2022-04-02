@@ -6,13 +6,14 @@ I certify that this assignment is entirely my own work.
 """
 from random import *
 
+
 def get_words(file_name):
     text = open(file_name, "r")
     return text.readlines()
 
 
 def get_random_word(words):
-    x = randint(1, len(words))
+    x = randint(0, len(words))
     return words[x]
 
 
@@ -31,11 +32,16 @@ def already_guessed(letter, guesses):
 
 
 def make_hidden_secret(secret_word, guesses):
-    pass
+    for i in secret_word:
+        if i.lower() in guesses:
+            print(i, end=" ")
+        else:
+            print("_", end=" ")
+
 
 
 def won(guessed):
-    pass
+
 
 
 def play_graphics(secret_word):
@@ -43,10 +49,10 @@ def play_graphics(secret_word):
 
 
 def play_command_line(secret_word):
-    pass
+
 
 
 if __name__ == '__main__':
-    pass
+    play_command_line(get_random_word(get_words("words.txt")))
     # play_command_line(secret_word)
     # play_graphics(secret_word)
