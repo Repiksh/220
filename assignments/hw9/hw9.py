@@ -1,17 +1,33 @@
+"""
+Scott Repik -Repiksh
+hw9.py
+
+I certify that this assignment is entirely my own work.
+"""
+from random import *
+
 def get_words(file_name):
-    pass
+    text = open(file_name, "r")
+    return text.readlines()
 
 
 def get_random_word(words):
-    pass
+    x = randint(1, len(words))
+    return words[x]
 
 
 def letter_in_secret_word(letter, secret_word):
-    pass
+    if letter in secret_word:
+        return True
+    else:
+        return False
 
 
 def already_guessed(letter, guesses):
-    pass
+    if letter in guesses:
+        return True
+    else:
+        return False
 
 
 def make_hidden_secret(secret_word, guesses):
