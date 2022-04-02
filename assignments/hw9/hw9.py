@@ -72,7 +72,7 @@ def play_command_line(secret_word):
         if trials == 0:
             print("The word was:", striped)
             break
-    if trials == 0 and not won():
+    if trials == 0 and not won(striped, make_hidden_secret(striped, guess_list)):
         print("You lose")
     else:
         print("You Win")
