@@ -42,8 +42,11 @@ def make_hidden_secret(secret_word, guesses):
     return new_string.join(new_list)
 
 
-def won():
-    return False
+def won(secret_word, guessed):
+    if secret_word == guessed:
+        return True
+    else:
+        return False
 
 
 def play_graphics(secret_word):
@@ -54,7 +57,7 @@ def play_command_line(secret_word):
     trials = 6
     guess_list = []
     striped = secret_word.strip()
-    while not won():
+    while not won(striped, make_hidden_secret(striped, guess_list)):
         guess = input(f"Guesses Left {trials}, Enter Next Guess:")
         if not already_guessed(guess, guess_list):
             guess_list.append(guess)
