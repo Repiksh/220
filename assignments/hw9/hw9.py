@@ -42,8 +42,8 @@ def make_hidden_secret(secret_word, guesses):
     return new_string.join(new_list)
 
 
-def won(guessed):
-    pass
+def won():
+    return False
 
 
 def play_graphics(secret_word):
@@ -51,8 +51,23 @@ def play_graphics(secret_word):
 
 
 def play_command_line(secret_word):
-    make_hidden_secret(secret_word, ["a", "e", "i", "o", "u"])
-
+    trials = 6
+    guess_list = []
+    while not won():
+        guess = input(f"Guesses Left {trials}, Enter Next Guess:")
+        if not already_guessed(guess, guess_list):
+            guess_list.append(guess)
+            if letter_in_secret_word(guess, secret_word):
+                print(make_hidden_secret(secret_word, guess_list))
+            else:
+                print("Letter not in word.")
+                trials -= 1
+        else:
+            print("Already Guessed")
+        if trials == 0:
+            print("The word was:", secret_word)
+            break
+    print("You Win")
 
 
 if __name__ == '__main__':
