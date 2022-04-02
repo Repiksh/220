@@ -63,12 +63,16 @@ def play_command_line(secret_word):
             else:
                 print("Letter not in word.")
                 trials -= 1
+                print(make_hidden_secret(striped, guess_list))
         else:
             print("Already Guessed")
         if trials == 0:
             print("The word was:", striped)
             break
-    print("You Win")
+    if trials == 0 and not won():
+        print("You lose")
+    else:
+        print("You Win")
 
 
 if __name__ == '__main__':
