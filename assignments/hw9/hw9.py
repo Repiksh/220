@@ -32,16 +32,18 @@ def already_guessed(letter, guesses):
 
 
 def make_hidden_secret(secret_word, guesses):
+    new_list = []
+    new_string = ""
     for i in secret_word:
         if i.lower() in guesses:
-            print(i, end=" ")
+            new_list.append(i)
         else:
-            print("_", end=" ")
-
+            new_list.append("_")
+    return new_string.join(new_list)
 
 
 def won(guessed):
-
+    pass
 
 
 def play_graphics(secret_word):
@@ -49,6 +51,7 @@ def play_graphics(secret_word):
 
 
 def play_command_line(secret_word):
+    make_hidden_secret(secret_word, ["a", "e", "i", "o", "u"])
 
 
 
