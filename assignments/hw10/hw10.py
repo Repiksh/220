@@ -4,6 +4,8 @@ hw10.py
 
 I certify that this assignment is entirely my own work.
 """
+from face import *
+
 
 
 def fibonacci(n):
@@ -41,4 +43,3 @@ def syracuse(n):
 
 def goldbach(n):
     pass
-

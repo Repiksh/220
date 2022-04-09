@@ -36,4 +36,7 @@ class Face:
         pass
 
     def wink(self):
-        pass
+        self.head.draw(self.window)
+        self.mouth.draw(self.window)
+        self.right_eye.draw(self.window)
+        left_eye = Line()
