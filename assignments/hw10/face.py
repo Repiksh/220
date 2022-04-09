@@ -1,3 +1,9 @@
+"""
+Scott Repik -Repiksh
+hw10.py
+
+I certify that this assignment is entirely my own work.
+"""
 from graphics import Circle, Line
 
 
