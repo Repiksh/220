@@ -23,14 +23,17 @@ class Face:
         self.left_eye.draw(window)
         self.right_eye.draw(window)
         point_1 = center.clone()
-        point_1.move(-mouth_size / 2, mouth_off)
+        point_1.move(-mouth_size/ 2, mouth_off)
         point_2 = center.clone()
         point_2.move(mouth_size / 2, mouth_off)
         self.mouth = Line(point_1, point_2)
         self.mouth.draw(window)
 
     def smile(self):
-        pass
+        self.head.draw(self.window)
+        self.left_eye.draw(self.window)
+        self.right_eye.draw(self.window)
+
 
     def shock(self):
         pass
