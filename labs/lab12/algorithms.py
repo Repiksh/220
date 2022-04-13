@@ -24,3 +24,5 @@ def read_data(file_name):
     text.close()
 
     return list_file
+
+

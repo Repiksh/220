@@ -6,6 +6,7 @@ lab12.py
 """
 
 from random import *
+from algorithms import *
 
 
 def find_and_remove_first(values, search_val):
