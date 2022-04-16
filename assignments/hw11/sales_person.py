@@ -2,7 +2,8 @@
 Scott Repik
 sales_person.py
 
-
+Certification of Authenticity:
+I certify that this assignment is entirely my own work.
 """
 
 
@@ -39,10 +40,12 @@ class SalesPerson:
             return False
 
     def compare_to(self, other):
-        pass
+        if self.total_sales() == other:
+            return 0
+        elif self.total_sales() < other:
+            return -1
+        elif self.total_sales() > other:
+            return 1
 
     def __str__(self):
         return self.employee_id + "-" + self.name + ":" + self.sales
-
-
-
