@@ -2,7 +2,8 @@
 Scott Repik -Repiksh
 algorithms.py
 
-
+Certification of Authenticity:
+I certify that this assignment is entirely my own work.
 """
 
 from graphics import *
