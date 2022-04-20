@@ -2,7 +2,6 @@
 Scott Repik -Repiksh
 lab10.py
 
-A
 
 Certification of Authenticity:
 I certify that this assignment is entirely my own work.
